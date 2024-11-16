@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
@@ -12,35 +13,32 @@ public class Player : MonoBehaviour
     public GameObject dieText;
     public GameObject restart;
     public bool Ispaused = false;
+    public FixedJoystick Joystick;
+    public AudioSource bruh;
+    public AudioSource background;
     
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Ispaused == true)
-        {
-            Debug.Log("Space pressed");
-            Time.timeScale = 1;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Ispaused = false;
-                
-        }
         
         float H = Input.GetAxis("Horizontal");
         transform.Translate(new Vector3((H)* Time.deltaTime, 0, 0));
+        float J = Joystick.Horizontal * vel;
+        transform.Translate(new Vector3(J * Time.deltaTime,0, 0));
     }
-    private void OnCollisionEnter(Collision death)
+    public void OnCollisionEnter(Collision death)
     {
         if (death.gameObject.tag == "Stone")
         {
-            Time.timeScale = 0;
+            background.Pause();
+            bruh.Play();
             Ispaused = true;
             dieText.SetActive(true);
             restart.SetActive(true);
