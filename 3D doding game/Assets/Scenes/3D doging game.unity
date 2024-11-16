@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18025598, g: 0.22568195, b: 0.30690745, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802556, g: 0.22568113, b: 0.30690622, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -639,7 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f73fec8a620fd948bc816acd8277d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sphereprefab: {fileID: 557122067620903010, guid: ce0ed11e1c2391841a742f751140651c, type: 3}
+  Sphereprefab: {fileID: 557122067620903010, guid: 4af9f8a4946781942bdc25d1f0b6ebb8, type: 3}
   elapsedTime: 0
   spawner1: {fileID: 1715913518}
   timer1: 0
